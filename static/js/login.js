@@ -17,18 +17,42 @@ $(function () {
         missingMessage:'请输入密码',
     });
     if(!$('#username').validatebox('isValid')){
-            $('#username').focus();
+        $('#username').focus();
     }else if(!$('#username').validatebox('isValid')){
-            $('#password').focus();
+        $('#password').focus();
     }
     $('#btn a').click(function(){
     if(!$('#username').validatebox('isValid')){
-        $('#username').focus();
         $.messager.alert('错误','请输入帐号','error')
+        // $('#username').focus();
     }else if(!$('#password').validatebox('isValid')){
-        $('#password').focus();
         $.messager.alert('错误','请输入密码','error')
-    }
-    })
+        // $('#password').focus();
+    }else{
+         $.messager.progress({
+            interval:150,
+            text:'登陆中，请稍后。。。',
+        });
+        var data = {
+            'username': $('#username').val(),
+            'password': $('#password').val(),
+        }
+        $.ajax({
+            type: 'post',
+            url: '/',
+            data: data,
+            dataType: 'text',
+            success:function (data) {
+                if (data == "ok"){
+                        $(location).attr('href', '/manager')
+                }
+                else {
+                        $.messager.progress('close');
+                        $.messager.alert('登陆失败','用户名或密码错误','error')
+                }
+            }
+        });
+    };
+    return false;
+    });
 })
-

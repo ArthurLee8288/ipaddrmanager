@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="{{ url_for('static',filename='css/login.css') }}">
 </head>
 <body>
-    <form id="login">
-        <p>帐号：<input type="text" id="username" class="textbox"></p>
-        <p>密码：<input type="password" id="password" class="textbox"></p>
+    <form id="login" action="/",method="post">
+        <p>帐号：<input type="text" id="username" class="textbox" name="username"></p>
+        <p>密码：<input type="password" id="password" class="textbox" name="password"></p>
     </form>
     <div id="btn">
         <a href="javascript:void(0)" class="easyui-linkbutton">登陆</a>

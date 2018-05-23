@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IpManager管理系统</title>
+    <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/jquery.easyui.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/easyui-lang-zh_CN.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/easyui.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/icon.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/manager.css') }}">
+    <script src="{{ url_for('static',filename='js/manager.js') }}"></script>
+</head>
+<body id="main" class="easyui-layout">
+    <div data-options="region:'north',split:false" style="height:60px;">
+        <div class="header">
+            <div class="logo">IpManager管理系统</div>
+            <div class="logout">欢迎 {{ username }} 登陆 | <a href=""  id="logout">注销</a></div>
+        </div>
+    </div>
+    <div data-options="region:'south',split:false" style="height:40px;">
+    </div>
+    <div id="rightnav" data-options="region:'east',collapsible:false,split:false" style="width:20%;overflow:auto;">
+        <table id="ip_list">
+
+        </table>
+    </div>
+    <div data-options="region:'west',title:'地址类型',split:false,collapsible:false,border:false"
+         id="left" style="width:160px;">
+        <div id ="leftnav" title="客户端设备" iconCls="" style="overflow:auto;padding:10px;">
+                {% for i in netaddr %}
+                    <a href="#" class="easyui-linkbutton" onclick="show_context('{{ i.networkaddr }}',this)" style="text-decoration:none;display:block">{{ i.networkaddr }}</a>
+                {% endfor %}
+        </div>
+        <div title="网络设备" iconCls="" style="overflow:auto;padding:10px;">
+
+        </div>
+        <div title="监控设备" style="overflow:auto">
+
+        </div>
+    </div>
+    <div data-options="region:'center',border:false" style="padding:5px;background:#eee;">
+        <div id="nav" class="nav">
+            <div title="起始页" style="padding:20px;display:none;">
+                <h3>欢迎使用IpManager管理系统</h3>
+                <span>如需添加网段，<a href="#">请点击这里</a></span>
+            </div>
+        </div>
+    </div>
+    <form id="change_ip_fm">
+        <div id="change_ip" style="display: none;padding: 5px;">
+            <div><lable>IP地址</lable><input id='datagrid_ipaddr_change' type="text"><lable>物理地址</lable><input id='datagrid_macaddr_change' type="text"></div>
+            <div><lable>部门</lable><input  id='datagrid_deperment_change' type="text"><lable>位置</lable><input  id='datagrid_place_change' type="text"></div>
+            <div><lable>使用人</lable><input  id='datagrid_person_change' type="text"><lable>设备类型</lable><input  id='datagrid_type_change' type="text"></div>
+            <div><input type="button" class="easyui-linkbutton" value="提交"></div>
+        </div>
+    </form>
+    <div id="add_ip" style="display: none;">
+        <div style="height: 75%">
+            <div class="add_ip_left">
+                <div class="title_first">
+                    <p class="nav_title">IP地址:</p>
+                    <p class="nav_title">部门:</p>
+                    <p class="nav_title">使用人:</p>
+                </div>
+                <div class="context_first">
+                    <p><input id="cc_ipaddress" type="text"></p>
+                    <p><input id="cc_department"></p>
+                    <p><input type="text" ></p>
+                </div>
+            </div>
+            <div class="add_ip_right">
+                <div class="title_first">
+                    <p class="nav_title">MAC地址:</p>
+                    <p class="nav_title">使用地点:</p>
+                    <p class="nav_title">设备类型:</p>
+                </div>
+                <div class="context_first">
+                    <p><input type="text" text=" "></p>
+                    <p><input type="text" text=" "></p>
+                    <p><input id="cc_type"></p>
+                </div>
+            </div>
+        </div>
+        <div class="action_ip"><a href="#" class="easyui-linkbutton">清除</a><a href="#" onclick="temp()" class="easyui-linkbutton">确认</a></div>
+    </div>
+</body>
+</html>

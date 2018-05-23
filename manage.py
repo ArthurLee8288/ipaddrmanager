@@ -1,5 +1,6 @@
 #encoding:utf-8
 
+
 from flask_script import Manager
 from flask_migrate import MigrateCommand,Migrate
 from ipaddrmanager import app
