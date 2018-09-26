@@ -5,7 +5,7 @@ from flask_script import Manager
 from flask_migrate import MigrateCommand,Migrate
 from ipaddrmanager import app
 from exts import db
-from models import User
+import models
 
 
 

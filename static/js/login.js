@@ -46,7 +46,7 @@ $(function () {
                 if (data == "ok"){
                         $(location).attr('href', '/manager')
                 }
-                else {
+                if (data == 'no') {
                         $.messager.progress('close');
                         $.messager.alert('登陆失败','用户名或密码错误','error')
                 }

@@ -36,14 +36,14 @@
 
         </div>
         <div title="监控设备" style="overflow:auto">
-
         </div>
     </div>
     <div data-options="region:'center',border:false" style="padding:5px;background:#eee;">
         <div id="nav" class="nav">
             <div title="起始页" style="padding:20px;display:none;">
                 <h3>欢迎使用IpManager管理系统</h3>
-                <span>如需添加网段，<a href="#">请点击这里</a></span>
+                <div><span>如需添加网段，请点击<a href="#">这里</a></span></div>
+                <div><span>如需添加部门，请点击<a href="#">这里</a></span></div>
             </div>
         </div>
     </div>
@@ -55,34 +55,34 @@
             <div><input type="button" class="easyui-linkbutton" value="提交"></div>
         </div>
     </form>
-    <div id="add_ip" style="display: none;">
-        <div style="height: 75%">
-            <div class="add_ip_left">
-                <div class="title_first">
-                    <p class="nav_title">IP地址:</p>
-                    <p class="nav_title">部门:</p>
-                    <p class="nav_title">使用人:</p>
+        <div id="add_ip" style="display: none;">
+            <div style="height: 75%">
+                <div class="add_ip_left">
+                    <div class="title_first">
+                        <p class="nav_title">IP地址:</p>
+                        <p class="nav_title">部门:</p>
+                        <p class="nav_title">使用人:</p>
+                    </div>
+                    <div class="context_first">
+                        <p><input id="cc_ipaddress" class="easyui-validatebox" type="text"></p>
+                        <p><input id="cc_department" class="easyui-validatebox"></p>
+                        <p><input id="cc_user" type="text" class="easyui-validatebox"></p>
+                    </div>
                 </div>
-                <div class="context_first">
-                    <p><input id="cc_ipaddress" type="text"></p>
-                    <p><input id="cc_department"></p>
-                    <p><input type="text" ></p>
+                <div class="add_ip_right">
+                    <div class="title_first">
+                        <p class="nav_title">MAC地址:</p>
+                        <p class="nav_title">使用地点:</p>
+                        <p class="nav_title">设备类型:</p>
+                    </div>
+                    <div class="context_first">
+                        <p><input id="cc_macaddr" type="text" text=" " class="easyui-validatebox" ></p>
+                        <p><input id="cc_place" type="text" text=" " class="easyui-validatebox"></p>
+                        <p><input id="cc_type" class="easyui-validatebox"></p>
+                    </div>
                 </div>
             </div>
-            <div class="add_ip_right">
-                <div class="title_first">
-                    <p class="nav_title">MAC地址:</p>
-                    <p class="nav_title">使用地点:</p>
-                    <p class="nav_title">设备类型:</p>
-                </div>
-                <div class="context_first">
-                    <p><input type="text" text=" "></p>
-                    <p><input type="text" text=" "></p>
-                    <p><input id="cc_type"></p>
-                </div>
-            </div>
+            <div class="action_ip"><a href="#" class="easyui-linkbutton">清除</a><a href="#" onclick="temp()" class="easyui-linkbutton">确认</a></div>
         </div>
-        <div class="action_ip"><a href="#" class="easyui-linkbutton">清除</a><a href="#" onclick="temp()" class="easyui-linkbutton">确认</a></div>
-    </div>
 </body>
 </html>
